@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+// Apparition au défilement (classes posées par main.js).
+// À garder en fin de feuille : doit primer sur les transform des blocs.
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s $ease-out !important;
+
+  &.is-in { opacity: 1; transform: none; }
+}
+
+@include reduced-motion {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .hero__media img, .hero__kicker, .hero__title, .hero__lead, .quick, .ticker__track, .spin-badge__ring { animation: none; }
+}

@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: $radius-pill;
+  border: 0;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, transform .2s, box-shadow .2s;
+
+  // Léger rebond au survol
+  &:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba($ink, .55); }
+
+  &--accent {
+    background: $yellow;
+    color: $ink;
+    padding: 11px 22px;
+
+    &:hover { background: $white; color: $navy; }
+  }
+
+  &--primary {
+    background: $navy;
+    color: $white;
+
+    &:hover { background: $rust; color: $white; }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $navy;
+    color: $navy;
+    font-weight: 600;
+    padding: 11px 22px;
+
+    &:hover { background: $yellow; color: $ink; }
+  }
+
+  &--lg { font-size: 15px; padding: 15px 28px; }
+}
+
+.btn-round {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba($white, .5);
+  display: grid;
+  place-items: center;
+  color: $white;
+  font-size: 17px;
+
+  &:hover { background: $yellow; color: $ink; border-color: $yellow; transform: rotate(45deg); }
+}

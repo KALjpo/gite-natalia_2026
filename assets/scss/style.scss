@@ -1,0 +1,25 @@
+// Gîte Natalia — feuille de styles principale.
+// Compilée vers assets/css/style.css (npm run build) : ne pas modifier le CSS à la main.
+
+@use 'base/base';
+@use 'base/typography';
+@use 'base/layout';
+
+@use 'components/buttons';
+@use 'components/edges';
+@use 'components/header';
+@use 'components/ticker';
+@use 'components/lightbox';
+@use 'components/calendar';
+
+@use 'sections/hero';
+@use 'sections/gite';
+@use 'sections/equipements';
+@use 'sections/tarifs';
+@use 'sections/galerie';
+@use 'sections/sejour';
+@use 'sections/contact';
+@use 'sections/footer';
+
+// Toujours en dernier (apparition au défilement, mouvement réduit)
+@use 'components/motion';

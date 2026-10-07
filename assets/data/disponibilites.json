@@ -1,0 +1,8 @@
+{
+  "_aide": "Une ligne par réservation. 'du' = jour d'arrivée, 'au' = jour de départ (format AAAA-MM-JJ). Le jour de départ reste libre pour une nouvelle arrivée.",
+  "reservations": [
+    { "du": "2026-10-16", "au": "2026-10-19" },
+    { "du": "2026-10-24", "au": "2026-11-01" },
+    { "du": "2026-12-24", "au": "2027-01-02" }
+  ]
+}

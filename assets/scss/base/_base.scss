@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px; // hauteur du menu fixe
+}
+
+body {
+  margin: 0;
+  background: $cream;
+  color: $navy;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+
+  &.no-scroll { overflow: hidden; }
+}
+
+img { max-width: 100%; }
+
+a {
+  color: $navy;
+  text-decoration: none;
+  transition: color .2s, background-color .2s, border-color .2s, box-shadow .2s, transform .2s;
+
+  &:hover { color: $rust; }
+}
+
+input, select, textarea, button { font-family: inherit; }
+button { transition: background-color .2s, color .2s; }
+
+::selection { background: $yellow; color: $ink; }
+:focus-visible { outline: 2px solid $yellow; outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+.page { background: $cream; overflow-x: hidden; }
+.container { max-width: $container; margin: 0 auto; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes zoom-out { from { transform: scale(1.08); } to { transform: none; } }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@keyframes spin { to { transform: rotate(360deg); } }

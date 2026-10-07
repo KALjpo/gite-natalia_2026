@@ -1,0 +1,46 @@
+@use 'variables' as *;
+
+@mixin down($width) {
+  @media (max-width: $width) { @content; }
+}
+
+@mixin up($width) {
+  @media (min-width: $width) { @content; }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+@mixin backdrop-blur($radius) {
+  -webkit-backdrop-filter: blur($radius);
+  backdrop-filter: blur($radius);
+}
+
+@mixin display-font($weight: 700) {
+  font-family: $font-display;
+  font-weight: $weight;
+}
+
+// Liste sans puces ni marges
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Entrée animée des blocs du hero
+@mixin rise($delay: 0s) {
+  animation: rise .9s $ease-out $delay both;
+}
+
+// Halo jaune des sections sombres
+@mixin halo {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba($yellow, .26), transparent 65%);
+}

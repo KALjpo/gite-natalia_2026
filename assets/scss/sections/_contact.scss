@@ -1,0 +1,129 @@
+@use '../abstracts' as *;
+
+.contact {
+  padding: 50px $gutter 60px;
+  overflow: hidden;
+
+  &::before { @include halo; bottom: -260px; left: -200px; }
+  > .container { position: relative; }
+
+  .split { grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); }
+
+  &__lead { margin: 20px 0 0; font-size: 17px; line-height: 1.65; color: rgba($white, .85); max-width: 460px; }
+}
+
+.infos {
+  margin: 36px 0 0;
+  border-top: 1px solid rgba($white, .16);
+
+  > div {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba($white, .16);
+
+    @include down($bp-phone) { grid-template-columns: 1fr; gap: 4px; }
+  }
+  dt { font-size: 13px; color: rgba($white, .7); text-transform: uppercase; letter-spacing: .1em; }
+  dd { margin: 0; font-size: 16px; }
+  a {
+    color: $white;
+
+    &:hover { color: $yellow; }
+  }
+}
+
+.doc-link {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba($white, .07);
+  border: 1px solid rgba($white, .16);
+  color: $white;
+
+  &:hover { background: rgba($yellow, .14); color: $white; }
+
+  &__icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: $rust;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    strong { font-size: 16px; }
+    span { font-size: 13px; color: rgba($white, .75); }
+  }
+  &__arrow { margin-left: auto; font-size: 20px; color: $yellow; }
+}
+
+.form-card { background: $cream; color: $navy; border-radius: 28px; padding: clamp(22px, 3vw, 36px); }
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+
+  label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
+
+  input,
+  select,
+  textarea {
+    border: 1px solid $field;
+    background: $white;
+    border-radius: 12px;
+    padding: 13px 14px;
+    font-size: 15px;
+    color: $ink;
+    outline-color: $navy;
+    width: 100%;
+    min-width: 0;
+  }
+  input[type="date"] { padding: 12px 14px; }
+  select { padding: 13px 10px; }
+  textarea { resize: vertical; }
+  input[aria-invalid="true"] { border-color: $error; }
+
+  .full { grid-column: 1 / -1; }
+
+  &__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  &__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 4px;
+
+    > span { font-size: 14px; color: $text; }
+    strong { color: $navy; }
+  }
+  &__err { margin: 0; color: $error; font-size: 14px; font-weight: 600; }
+}
+
+.form-done {
+  padding: 40px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  &__icon { width: 64px; height: 64px; border-radius: 50%; background: $yellow; color: $ink; display: grid; place-items: center; font-size: 28px; }
+  h3 { margin: 0; @include display-font; font-size: 28px; }
+  p { margin: 0; font-size: 16px; line-height: 1.6; color: $text; max-width: 360px; }
+  .btn { margin-top: 8px; padding: 10px 20px; }
+}

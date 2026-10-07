@@ -1,0 +1,13 @@
+{
+  "name": "gite-natalia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site du Gîte Natalia (Joinville, Haute-Marne)",
+  "scripts": {
+    "build": "sass assets/scss/style.scss assets/css/style.css --style=compressed --no-source-map",
+    "watch": "sass --watch assets/scss/style.scss assets/css/style.css --style=expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.59.3"
+  }
+}

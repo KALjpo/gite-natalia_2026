@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.equipements { padding: 80px $gutter 220px; }
+
+.amenities { columns: 290px; column-gap: 18px; }
+
+.amenity {
+  break-inside: avoid;
+  margin: 0 0 18px;
+  background: $white;
+  border: 1px solid $line;
+  border-radius: $radius-card;
+  padding: 24px 24px 20px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+
+  &:hover { transform: translateY(-4px); border-color: $yellow; box-shadow: 0 22px 40px -26px rgba($navy, .55); }
+
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+
+    h3 { margin: 0; @include display-font; font-size: 21px; }
+  }
+
+  ul { @include list-reset; display: flex; flex-direction: column; gap: 9px; }
+  li {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.45;
+    color: $text-strong;
+
+    &::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: $rust; margin-top: 8px; }
+  }
+}
+
+.count { font-size: 12px; font-weight: 700; color: $navy; background: $yellow; border-radius: $radius-pill; padding: 3px 10px; }

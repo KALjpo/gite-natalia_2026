@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// Bandeau défilant
+.ticker {
+  position: relative;
+  z-index: 2;
+  width: 106%;
+  margin: 36px 0 10px -3%;
+  background: $yellow;
+  color: $ink;
+  transform: rotate(-1.5deg);
+  overflow: hidden;
+  padding: 14px 0;
+  box-shadow: 0 18px 40px -22px rgba($rust, .7);
+
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    width: max-content;
+    padding-right: 28px;
+    @include display-font;
+    font-size: clamp(15px, 1.5vw, 19px);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: ticker 38s linear infinite;
+
+    i { font-style: normal; color: $rust; }
+  }
+
+  &:hover &__track { animation-play-state: paused; }
+}

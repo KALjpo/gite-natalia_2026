@@ -1,0 +1,88 @@
+@use '../abstracts' as *;
+
+.gite {
+  padding: 60px $gutter 40px;
+
+  &__visual {
+    position: relative;
+
+    &:hover .price-badge { transform: rotate(0) scale(1.05); }
+  }
+}
+
+.price-badge {
+  position: absolute;
+  left: -8px;
+  bottom: -18px;
+  background: $rust;
+  color: $white;
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  box-shadow: 0 18px 40px -18px rgba($navy, .5);
+  transform: rotate(-4deg);
+  transition: transform .3s;
+
+  &__amount { @include display-font(800); font-size: 34px; line-height: 1; }
+}
+
+// Pastille tournante sur la photo du gîte
+.spin-badge {
+  position: absolute;
+  top: -34px;
+  right: 4px;
+  width: clamp(92px, 10vw, 124px);
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 14px 22px rgba($navy, .35));
+
+  @include down($bp-phone) { top: -26px; }
+
+  &__ring { transform-origin: 60px 60px; animation: spin 22s linear infinite; }
+  &__star { fill: $rust; }
+  text { @include display-font(800); font-size: 11.5px; letter-spacing: .08em; fill: $ink; }
+}
+
+.highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 90px; }
+
+// Cartes « points forts » : remplissage jaune au survol
+.highlight {
+  position: relative;
+  overflow: hidden;
+  background: $white;
+  border-radius: 6px;
+  border-bottom: 3px solid $yellow;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 30px -18px rgba($navy, .35);
+  color: $navy;
+  min-height: 170px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $yellow;
+    transform: translateY(101%);
+    transition: transform .35s $ease-out;
+  }
+  > * { position: relative; transition: color .25s, transform .25s; }
+
+  &__k { @include display-font(300); font-size: 40px; line-height: 1; color: $rust; }
+  &__t { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; line-height: 1.4; }
+  &__arrow { margin-top: auto; font-size: 18px; }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -18px rgba($navy, .45);
+
+    &::before { transform: none; }
+    &, .highlight__k { color: $ink; }
+    .highlight__arrow { transform: translateX(8px); }
+  }
+}

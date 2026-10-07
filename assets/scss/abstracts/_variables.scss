@@ -1,0 +1,37 @@
+// Gîte Natalia — variables (palette, typo, mesures)
+
+// Couleurs dominantes
+$navy: #1b3679;
+$navy-deep: #10214d;
+$yellow: #ffc83d;
+
+// Couleurs d'appoint
+$ink: #0c1838;
+$rust: #d1462a;
+$cream: #f5f4ee;
+$white: #fff;
+$text: #47526b;
+$text-strong: #353f57;
+$line: #e3e5da;
+$line-strong: #d9dccf;
+$field: #d3d7c8;
+$placeholder: #dfe2d6;
+$error: #a3401c;
+
+// Typographie
+$font-display: 'Urbanist', sans-serif;
+$font-body: 'DM Sans', system-ui, sans-serif;
+
+// Mesures
+$gutter: clamp(20px, 5vw, 72px);
+$container: 1280px;
+$radius-pill: 999px;
+$radius-card: 20px;
+$header-height: 94px;
+
+// Points de rupture
+$bp-nav: 900px;   // en dessous : menu burger
+$bp-phone: 560px;
+
+// Mouvement
+$ease-out: cubic-bezier(.2, .7, .2, 1);

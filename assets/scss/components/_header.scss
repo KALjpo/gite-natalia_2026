@@ -1,0 +1,139 @@
+@use '../abstracts' as *;
+
+// En-tête fixe en haut de page
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px clamp(20px, 4vw, 56px);
+  transition: padding .3s, background-color .3s, box-shadow .3s;
+
+  // Classe posée par main.js dès qu'on quitte le haut de page
+  &.is-stuck {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgba($navy-deep, .9);
+    @include backdrop-blur(12px);
+    box-shadow: 0 10px 30px -18px rgba($ink, .8);
+
+    .brand__mark { height: 36px; }
+
+    @include up($bp-nav + 1) {
+      .main-nav { background: transparent; border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    }
+  }
+
+  @include down($bp-nav) { flex-wrap: nowrap; }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $white;
+
+  &:hover { color: $white; }
+
+  &__mark { height: 46px; width: auto; transition: height .3s; }
+  &__text { display: flex; flex-direction: column; line-height: 1; }
+  &__name {
+    @include display-font(800);
+    font-size: 26px;
+    letter-spacing: .06em;
+
+    @include down($bp-phone) { font-size: 22px; }
+  }
+  &__tag {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    opacity: .85;
+    margin-top: 5px;
+
+    @include down($bp-phone) { display: none; }
+  }
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 5px;
+  border-radius: $radius-pill;
+  background: rgba($navy-deep, .75);
+  border: 1px solid rgba($white, .12);
+  @include backdrop-blur(8px);
+
+  a {
+    color: $white;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: $radius-pill;
+
+    &:hover { background: rgba($white, .12); color: $yellow; }
+  }
+
+  // Menu déroulant sous le burger
+  @include down($bp-nav) {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 20px;
+    right: 20px;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 8px;
+    background: $navy-deep;
+    box-shadow: 0 24px 40px -20px rgba($ink, .8);
+    display: none;
+
+    &.is-open { display: flex; }
+    a { padding: 12px 16px; font-size: 16px; }
+  }
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include down($bp-nav) {
+    margin-left: auto;
+
+    .btn-round { display: none; }
+  }
+  @include down($bp-phone) {
+    .btn { padding: 10px 16px; font-size: 13px; white-space: nowrap; }
+  }
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba($white, .5);
+  background: rgba($navy-deep, .6);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  span { display: block; width: 18px; height: 2px; border-radius: 2px; background: $white; transition: transform .2s, opacity .2s; }
+
+  &[aria-expanded="true"] span {
+    &:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    &:nth-child(2) { opacity: 0; }
+    &:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  }
+
+  @include down($bp-nav) { display: flex; order: 3; }
+}

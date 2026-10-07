@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.galerie {
+  padding: 50px $gutter 80px;
+
+  .section-head { margin-bottom: 32px; }
+}
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.filter {
+  cursor: pointer;
+  border: 1px solid $navy;
+  background: transparent;
+  color: $navy;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: $radius-pill;
+  transition: background-color .2s, color .2s, transform .2s;
+
+  &:hover { background: rgba($navy, .1); transform: translateY(-2px); }
+  &.is-active { background: $navy; color: $white; }
+}
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+
+.shot {
+  position: relative;
+  display: block;
+  cursor: zoom-in;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: $placeholder;
+
+  img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+  span {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    background: rgba($navy, .85);
+    color: $white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: $radius-pill;
+    transition: background-color .25s, color .25s, transform .25s;
+  }
+
+  &:hover {
+    img { transform: scale(1.05); }
+    span { background: $yellow; color: $ink; transform: translateY(-3px); }
+  }
+}

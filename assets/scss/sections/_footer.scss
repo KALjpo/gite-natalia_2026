@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+.site-footer {
+  margin: 80px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba($white, .16);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  color: rgba($white, .75);
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $white;
+
+    .brand__name { font-size: 20px; }
+    span:last-child { color: rgba($white, .7); }
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    a {
+      color: rgba($white, .8);
+
+      &:hover { color: $yellow; }
+    }
+  }
+}
+
+// Lien Facebook
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba($white, .85);
+
+  svg {
+    width: 36px;
+    height: 36px;
+    padding: 7px;
+    border-radius: 50%;
+    border: 1px solid rgba($white, .4);
+    transition: background-color .2s, color .2s, border-color .2s, transform .2s;
+  }
+
+  &:hover {
+    color: $yellow;
+
+    svg { background: $yellow; color: $ink; border-color: $yellow; transform: translateY(-2px); }
+  }
+}

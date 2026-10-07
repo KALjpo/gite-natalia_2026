@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(10, 20, 50, .95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+
+  &__img { max-width: min(1200px, 92vw); max-height: 78vh; object-fit: contain; border-radius: 14px; display: block; }
+  &__bar { display: flex; align-items: center; gap: 14px; color: $white; }
+  &__caption {
+    font-size: 15px;
+    min-width: 200px;
+    text-align: center;
+
+    @include down($bp-phone) { min-width: 0; font-size: 13px; }
+  }
+
+  button {
+    cursor: pointer;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba($white, .4);
+    background: transparent;
+    color: $white;
+    font-size: 18px;
+
+    &:hover { background: rgba($white, .12); }
+  }
+
+  & &__next {
+    border: 0;
+    background: $yellow;
+    color: $ink;
+
+    &:hover { background: $white; }
+  }
+
+  &__close { position: absolute; top: 18px; right: 18px; font-size: 20px !important; }
+}

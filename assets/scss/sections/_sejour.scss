@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+.sejour {
+  padding: 40px $gutter 230px;
+
+  &__aside { display: flex; flex-direction: column; gap: 18px; }
+  &__intro { margin: 6px 0 0; font-size: 16px; font-weight: 600; }
+}
+
+.steps {
+  @include list-reset;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-top: 1px solid $line-strong;
+
+    &:hover .steps__i { background: $yellow; color: $ink; transform: scale(1.12) rotate(-8deg); }
+  }
+
+  &__i {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: $navy;
+    color: $white;
+    display: grid;
+    place-items: center;
+    @include display-font;
+    font-size: 17px;
+    transition: background-color .25s, color .25s, transform .25s;
+  }
+
+  h3 { margin: 0 0 6px; @include display-font; font-size: 20px; }
+  p { margin: 0; font-size: 16px; line-height: 1.6; color: $text; }
+}
+
+.nearby {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+
+  &__item {
+    background: $white;
+    border-radius: $radius-card;
+    padding: 22px;
+    border: 1px solid $line;
+    transition: transform .25s, border-color .25s;
+
+    &:hover { transform: translateY(-4px); border-color: $yellow; }
+
+    p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: $text-strong; }
+  }
+  &__dist { @include display-font(800); font-size: 36px; color: $rust; }
+}
+
+.callout {
+  margin: 4px 0 0;
+  padding: 20px 22px;
+  background: $yellow;
+  color: $ink;
+  border-radius: $radius-card;
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 700;
+  transform: rotate(-1deg);
+}
