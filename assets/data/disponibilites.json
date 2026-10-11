@@ -1,8 +1,6 @@
 {
-  "_aide": "Une ligne par réservation. 'du' = jour d'arrivée, 'au' = jour de départ (format AAAA-MM-JJ). Le jour de départ reste libre pour une nouvelle arrivée.",
+  "_aide": "Fichier généré automatiquement depuis l'agenda Google du gîte (scripts/sync-disponibilites.mjs) : ne pas le modifier à la main. 'du' = jour d'arrivée, 'au' = jour de départ, qui reste libre pour une nouvelle arrivée.",
   "reservations": [
-    { "du": "2026-10-16", "au": "2026-10-19" },
-    { "du": "2026-10-24", "au": "2026-11-01" },
-    { "du": "2026-12-24", "au": "2027-01-02" }
+    { "du": "2026-10-11", "au": "2026-10-12" }
   ]
 }
