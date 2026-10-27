@@ -1,5 +1,7 @@
 {
   "_aide": "Fichier généré automatiquement depuis l'agenda Google du gîte (scripts/sync-disponibilites.mjs) : ne pas le modifier à la main. 'du' = jour d'arrivée, 'au' = jour de départ, qui reste libre pour une nouvelle arrivée.",
   "reservations": [
+    { "du": "2026-10-27", "au": "2026-10-28" },
+    { "du": "2026-10-29", "au": "2026-10-30" }
   ]
 }
